@@ -2,13 +2,57 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vendas terceirão</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Vendas terceirão</title>
 </head>
 <body>
-    <section class="conteudo-principal">
-        <h2 class="titulo-principal">vendas terceirão_</h2>
-    </section>
+    <div class="caixa-principal"></div>
+        <h1>Vendas terceirão</h1>
+        <div class="caixa-perguntas"></div>
+        <div class="caixa-alternativas"></div>
+        <div class="caixa-resultado"></div>
+             <p class="texto-resultado"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>   
 </body>
 </html>
+const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
+const perguntas = [
+    const perguntas = [
+        enunciado: "Qual peŕiodo foi nossa venda?",
+        alternativas: [
+            "( ) somente a noite",
+            "( ) todos os turnos"
+        ]
+    },
+    {
+        enunciado: "O que vendemos?",
+        alternativas: [
+            "( ) bolo de pote e cachorro quente",
+            "( ) pastel e coxinha"
+        ]
+    }
+]; 
+let atual = 0;
+let perguntaAtual;
+
+function mostraPergunta() {
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    mostraAlternativas();
+}
+function mostraAlternativas() {
+    for(const alternativa of perguntaAtual.alternativas) {
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativa.textContent = alternativa;
+        caixaAlternativas.appendChild(botaoAlternativas);
+    }
+}
+
+mostraPergunta();
